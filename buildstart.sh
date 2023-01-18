@@ -69,7 +69,7 @@ check_and_download() {
 		&&  echo -n "not present, downloading..." \
 		&& wget -O mainsail_docker/mainsail.zip https://github.com/meteyou/mainsail/releases/download/v$MAINSAIL_RELEASE/mainsail.zip >/dev/null\
 		&& echo -n "... unzipping ..." \
-		&& unzip -d mainsail_docker/mainsail -fo mainsail_docker/mainsail.zip >/dev/null
+		&& unzip -d mainsail_docker/mainsail -o mainsail_docker/mainsail.zip >/dev/null
 	echo "done"
 }
 
