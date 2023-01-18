@@ -24,7 +24,7 @@ ENV KLIPPER_SRCDIR="/klipper/"
 RUN virtualenv -p python2 ${PYTHON2DIR}
 RUN ${PYTHON2DIR}/bin/pip install -r ${KLIPPER_SRCDIR}/scripts/klippy-requirements.txt
 
-FROM python:2 
+FROM python:3 
 
 RUN mkdir /klipper
 ARG UID
