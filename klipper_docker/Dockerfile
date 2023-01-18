@@ -39,7 +39,7 @@ ENV PYTHON2DIR="/klipper/klippy-env"
 ENV KLIPPER_SRCDIR="/klipper/"
 
 COPY start-klipper.sh .
-COPY --from=builder /klipper ./klipper
+
 USER root 
 RUN addgroup klipper dialout
 RUN chown -R klipper:3dprinters .
