@@ -152,9 +152,9 @@ action_build() {
 	
 	if [[ "$#" -eq "0" ]]; then
 		echo "no container specified, building all"
-		build_klipper
 		build_moonraker
 		build_mainsail
+		build_klipper
 		exit	
 	fi
 	while [[ 0 -lt $#  ]]; do
