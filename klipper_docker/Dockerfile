@@ -1,4 +1,4 @@
-FROM python:2
+FROM python:2 AS builder
 USER root
 RUN apt update
 RUN apt install -y\
@@ -24,7 +24,22 @@ ENV KLIPPER_SRCDIR="/klipper/"
 RUN virtualenv -p python2 ${PYTHON2DIR}
 RUN ${PYTHON2DIR}/bin/pip install -r ${KLIPPER_SRCDIR}/scripts/klippy-requirements.txt
 
+FROM python:2 
+
+RUN mkdir /klipper
+ARG UID
+ARG GID
+RUN groupadd -g ${GID} 3dprinters
+RUN useradd klipper --base-dir / -u ${UID} -g ${GID}
+RUN chown klipper:3dprinters /klipper
+WORKDIR /klipper
+USER klipper
+COPY klipper ./
+ENV PYTHON2DIR="/klipper/klippy-env"
+ENV KLIPPER_SRCDIR="/klipper/"
+
 COPY start-klipper.sh .
+COPY --from=builder /klipper ./klipper
 USER root 
 RUN addgroup klipper dialout
 RUN chown -R klipper:3dprinters .
