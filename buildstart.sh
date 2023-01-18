@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAINSAIL_RELEASE="1.1.0"
+MAINSAIL_RELEASE="2.4.1"
 
 ########### end of configuration ##################333
 
