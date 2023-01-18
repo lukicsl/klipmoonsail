@@ -55,7 +55,7 @@ check_and_update(){
 check_and_download() {
 	echo -n "checking for klipper source ..."
 	[ ! -d "klipper_docker/klipper" ] \
-		&& echo -n "not present, cloning..." && git clone https://github.com/KevinOConnor/klipper.git klipper_docker/klipper>/dev/null 
+		&& echo -n "not present, cloning..." && git clone https://github.com/Klipper3d/klipper.git klipper_docker/klipper>/dev/null 
 	echo "done"
 
 	echo -n "checking for moonraker source ..."
